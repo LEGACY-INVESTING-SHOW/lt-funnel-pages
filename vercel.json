@@ -4,6 +4,10 @@
     {
       "source": "/taxreport",
       "destination": "/tax-report-dr.html"
+    },
+    {
+      "source": "/taxreportorder",
+      "destination": "/order.html"
     }
   ]
 }
