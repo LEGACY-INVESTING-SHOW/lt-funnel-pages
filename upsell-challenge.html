@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Day Tax-Free Income Challenge | Legacy Investing Show</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #0b132b;
+            --primary-bg-light: #15224a;
+            --accent-pink: #1e8449;
+            --accent-blue: #1c7bfd;
+            --accent-green: #1e8449;
+            --btn-top: #ffd505;
+            --btn-bottom: #f29a00;
+            --text-dark: #111;
+            --text-light: #fff;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        img, video, iframe { max-width: 100%; display: block; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        strong, b { font-weight: 800; }
+
+        .wrap {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wrap-narrow {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography Highlights */
+        .hl-pink {
+            background-color: var(--accent-pink);
+            color: #fff;
+            padding: 0px 8px;
+            border-radius: 0;
+            display: inline-block;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .hl-white {
+            background-color: #fff;
+            color: var(--primary-bg);
+            padding: 0px 8px;
+            border-radius: 0;
+            display: inline-block;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .hl-blue {
+            background-color: var(--accent-blue);
+            color: #fff;
+            padding: 0px 8px;
+            border-radius: 0;
+            display: inline-block;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        .hl-yellow {
+            background-color: #fff200;
+            color: #111;
+            padding: 0px 8px;
+            border-radius: 0;
+            display: inline-block;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.3;
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-cta-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(2, 10, 28, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            border-bottom: 2px solid var(--accent-pink);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .sticky-cta-bar.visible {
+            transform: translateY(0);
+        }
+        
+        .btn-yellow-sm {
+            display: inline-block;
+            background: linear-gradient(180deg, #ffea00 0%, #ff9d00 100%);
+            color: #000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 900;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.1s;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
+        
+        .btn-yellow-sm:hover {
+            transform: translateY(-1px);
+        }
+        
+        .btn-yellow-sm:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at top center, var(--primary-bg-light) 0%, var(--primary-bg) 70%);
+            color: #fff;
+            padding: 40px 0 60px;
+            text-align: center;
+        }
+
+        .pre-headline {
+            color: var(--accent-pink);
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.1;
+        }
+
+        .hero-section .sub {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #cbd5e0;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Video Container */
+        .video-container {
+            background: #000;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            border: none;
+        }
+        .sound-bar {
+            background: var(--accent-blue);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .video-frame {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .video-frame iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* Big Yellow Button */
+        .btn-yellow {
+            display: block;
+            width: 100%;
+            background: linear-gradient(180deg, #ffea00 0%, #ff9d00 100%);
+            color: #000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-align: center;
+            padding: 18px 20px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15) !important;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
+        .btn-yellow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+        }
+        .btn-yellow:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+        }
+        .btn-yellow small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+            text-transform: none;
+            text-shadow: none;
+            opacity: 0.9;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .skip-link:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Dark Testimonial below video */
+        .hero-testimonial {
+            margin-top: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-testimonial img {
+            width: 60px; height: 60px; border-radius: 50%; object-fit: cover;
+        }
+        .hero-testimonial p {
+            color: #fff; font-size: 0.9rem; font-weight: 600; font-style: italic; line-height: 1.4;
+        }
+        .hero-testimonial .stars { color: #ffd505; font-size: 1.1rem; margin-top: 5px; }
+        .hero-testimonial .author { color: #ffd505; font-weight: 800; font-size: 0.9rem;}
+
+        /* Order Box */
+        .hero-order-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 0px;
+            color: #111;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 2px solid #fff;
+            overflow: hidden;
+        }
+        .order-box-top {
+            background: #fff;
+            border-radius: 0px;
+            padding: 30px 25px 20px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+        .ob-spots {
+            color: var(--accent-pink);
+            font-weight: 900;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .order-box-top h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #111;
+            line-height: 1.3;
+            margin: 15px 0 20px;
+            text-transform: uppercase;
+        }
+        .ob-price {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #111;
+            margin: 20px 0 8px;
+        }
+        .ob-price s {
+            color: #999;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .ob-price span {
+            color: var(--accent-pink);
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-left: 8px;
+            line-height: 1;
+        }
+        .ob-save {
+            font-size: 1rem;
+            color: var(--accent-green);
+            font-weight: 800;
+            margin: 12px 0;
+        }
+        .ob-desc {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 500;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        .ob-desc s {
+            color: #999;
+        }
+        .order-box-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-top: 1px solid #eaeaea;
+        }
+
+        /* White Section */
+        .white-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+            color: #111;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .reading-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 0;
+            padding: 25px;
+            color: #111;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            border: 2px solid #000;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+        }
+        .feature-card .f-icon {
+            background: var(--accent-blue);
+            color: #fff;
+            width: 40px; height: 40px;
+            border-radius: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+            font-weight: 900;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; color: #111;
+        }
+        .feature-card p {
+            font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 500;
+        }
+
+        /* Case Studies */
+        .case-study-card {
+            background: #fff;
+            border: 2px solid #000;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .case-name {
+            font-weight: 900;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .case-tag {
+            background: var(--accent-pink);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .case-saving {
+            color: var(--accent-pink);
+            font-weight: 900;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .case-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+        .case-list li {
+            margin: 8px 0;
+        }
+
+        /* Schedule Section */
+        .schedule-day {
+            background: #fff;
+            color: var(--text-dark);
+            border: 2px solid #000;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        .day-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .day-badge {
+            background: var(--accent-pink);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .session {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .session:last-child {
+            border-bottom: none;
+        }
+        .session-time {
+            background: var(--primary-bg);
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            text-transform: uppercase;
+        }
+        .session h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+        .session p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .testimonial-card .stars {
+            color: #ffd505;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        .testimonial-card .author-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .testimonial-card .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .testimonial-card .name {
+            font-weight: 800;
+            color: #111;
+            font-size: 1rem;
+        }
+        .testimonial-card .role {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Dark Section */
+        .dark-section {
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at top center, var(--primary-bg-light) 0%, var(--primary-bg) 70%);
+            padding: 60px 0;
+            color: #fff;
+        }
+        .dark-section .section-title {
+            color: #fff;
+        }
+        .dark-section .reading-text {
+            color: #cbd5e0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--primary-bg);
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+        }
+        .site-footer a {
+            color: #aaa;
+            text-decoration: underline;
+        }
+        .site-footer p {
+            max-width: 800px;
+            margin: 0 auto 10px;
+            line-height: 1.6;
+        }
+        .site-footer strong {
+            color: #fff;
+        }
+
+        /* CTA Wrapper */
+        .cta-wrapper {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        /* Urgency Strip */
+        .urgency-strip {
+            background: var(--accent-pink);
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sticky-cta-bar .wrap {
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px 15px;
+            }
+            .sticky-cta-bar {
+                padding: 10px 15px;
+            }
+            .sticky-cta-bar div[style*="font-weight: 700"] {
+                font-size: 0.85rem !important;
+                text-align: center;
+            }
+            .btn-yellow-sm {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                width: 100%;
+            }
+            .hero-section {
+                padding: 30px 0 40px !important;
+            }
+            .hero-section h1 {
+                font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+                line-height: 1.2 !important;
+            }
+            .hero-section .sub {
+                font-size: 1rem !important;
+                margin-bottom: 25px !important;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            .pre-headline {
+                font-size: 0.8rem !important;
+                margin-bottom: 15px !important;
+            }
+            .video-container {
+                margin-bottom: 15px !important;
+            }
+            .btn-yellow {
+                font-size: clamp(1.1rem, 4.5vw, 1.3rem) !important;
+                padding: 14px 16px !important;
+            }
+            .skip-link {
+                font-size: 0.85rem !important;
+                margin-top: 15px !important;
+            }
+            .hero-testimonial {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+                margin-top: 20px !important;
+            }
+            .hero-testimonial p {
+                font-size: 0.85rem !important;
+            }
+            .hero-order-box {
+                margin-top: 0 !important;
+            }
+            .order-box-top {
+                padding: 20px 20px 15px !important;
+            }
+            .order-box-top h3 {
+                font-size: 1.2rem !important;
+            }
+            .ob-price span {
+                font-size: 2.2rem !important;
+            }
+            .ob-desc {
+                font-size: 0.9rem !important;
+            }
+            .urgency-strip {
+                font-size: 0.8rem !important;
+                padding: 10px 15px !important;
+            }
+            .features-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                margin-top: 25px !important;
+            }
+            .feature-card {
+                padding: 20px !important;
+            }
+            .feature-card h3 {
+                font-size: 1.1rem !important;
+            }
+            .feature-card p {
+                font-size: 0.9rem !important;
+            }
+            .white-section, .dark-section {
+                padding: 40px 0 !important;
+            }
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 2rem) !important;
+                margin-bottom: 25px !important;
+            }
+            .reading-text {
+                font-size: 1rem !important;
+                margin-bottom: 15px !important;
+            }
+            .case-study-card {
+                padding: 20px !important;
+                margin-bottom: 15px !important;
+            }
+            .case-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px !important;
+                margin-bottom: 12px !important;
+            }
+            .case-name {
+                font-size: 1.1rem !important;
+            }
+            .case-saving {
+                font-size: 1.1rem !important;
+                margin-bottom: 12px !important;
+            }
+            .case-list {
+                font-size: 0.9rem !important;
+            }
+            .case-list li {
+                margin: 5px 0 !important;
+            }
+            .schedule-day {
+                padding: 20px !important;
+                margin-bottom: 15px !important;
+            }
+            .day-title {
+                font-size: 1.1rem !important;
+                margin-bottom: 15px !important;
+            }
+            .session {
+                flex-direction: column !important;
+                gap: 8px !important;
+                padding: 12px 0 !important;
+            }
+            .session-time {
+                font-size: 0.75rem !important;
+                padding: 4px 8px !important;
+                align-self: flex-start;
+            }
+            .session h4 {
+                font-size: 1rem !important;
+                margin-bottom: 3px !important;
+            }
+            .session p {
+                font-size: 0.85rem !important;
+            }
+            .testimonial-card {
+                padding: 20px !important;
+                margin-bottom: 15px !important;
+            }
+            .testimonial-card .quote {
+                font-size: 1rem !important;
+            }
+            .testimonial-card .author-box {
+                padding-top: 12px !important;
+            }
+            .cta-wrapper {
+                margin: 25px auto 0 !important;
+            }
+            .hl-pink, .hl-white, .hl-blue, .hl-yellow, .hl-green {
+                white-space: normal !important;
+                display: inline !important;
+                box-decoration-break: clone;
+                -webkit-box-decoration-break: clone;
+                padding: 2px 6px !important;
+            }
+            .wrap, .wrap-narrow {
+                padding: 0 15px !important;
+            }
+            .site-footer {
+                padding: 30px 15px !important;
+                font-size: 0.75rem !important;
+            }
+            .site-footer p {
+                font-size: 0.75rem !important;
+            }
+            [style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            [style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            [style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            [style*="grid-template-columns:repeat"] {
+                grid-template-columns: 1fr !important;
+            }
+            [style*="grid-template-columns: repeat"] {
+                grid-template-columns: 1fr !important;
+            }
+            /* FORCE all inline grids to single column */
+            div[style*="grid-template-columns"] {
+                display: block !important;
+            }
+            div[style*="grid-template-columns"] > * {
+                width: 100% !important;
+                margin-bottom: 15px !important;
+            }
+            .wrap, .wrap-narrow {
+                padding: 0 15px !important;
+            }
+            .site-footer {
+                padding: 30px 15px !important;
+                font-size: 0.75rem !important;
+            }
+            .site-footer p {
+                font-size: 0.75rem !important;
+            }
+        }
+            div[style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .btn-yellow {
+                font-size: clamp(1rem, 4vw, 1.4rem) !important;
+                padding: 16px 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyBar">
+        <div class="wrap" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 700; color: #fff; font-size: 1rem;">
+                <span style="color: #ffd505;">★★★★★</span> Challenge — Just $47
+            </div>
+            <a href="#order" class="btn-yellow-sm">
+                GET MY SEAT NOW ➜
+            </a>
+        </div>
+    </div>
+
+    <!-- Urgency Strip -->
+    <div class="urgency-strip">
+        ONE-TIME OFFER — This special pricing expires when you leave this page.
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="wrap">
+            <div class="pre-headline">Step 2 of 3 — One-Time Offer</div>
+            <h1>
+                Your Report Shows You The Money You're Losing. Here's How <span class="hl-yellow">4,400+ High-Income Earners</span> Get It Back In 3 Days.
+            </h1>
+            <p class="sub">Join the 3-Day Tax-Free Income Challenge (April 17-19, 2026) and build your plan to cut taxes, eliminate debt, and add $100K+ to your net worth in 12 months.</p>
+
+            <div class="hero-grid">
+                <div>
+                    <div class="video-container">
+                        <div class="sound-bar">🔊 Watch this 2-minute breakdown</div>
+                        <div class="video-frame">
+                            <iframe src="https://player.vimeo.com/video/1169555561?autoplay=0&title=0&byline=0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <a href="#order" class="btn-yellow">
+                        YES! Add The Challenge — $47
+                        <small>7-day money-back guarantee</small>
+                    </a>
+
+                    <a href="#" class="skip-link">No thanks, I'll figure it out on my own</a>
+
+                    <div class="hero-testimonial">
+                        <div style="background: var(--accent-blue); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; flex-shrink: 0;">SE</div>
+                        <div>
+                            <p>"I used to think I was doing okay financially. This challenge showed me I was leaving $30,000+ on the table every year in taxes alone."</p>
+                            <div class="author">STEPHEN & ELLIE <span class="stars">★★★★★</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="hero-order-box">
+                        <div class="order-box-top">
+                            <div class="ob-spots">⚡ ONE-TIME OFFER</div>
+                            <h3>ADD THE 3-DAY CHALLENGE</h3>
+                            <div class="ob-price">
+                                ONLY <s>$97.00</s> <span>$47</span>
+                            </div>
+                            <div class="ob-save">(SAVE $50.00 TODAY)</div>
+                            <div class="ob-desc">Get All 15 Sessions For <s>$97</s> Just $47!<br>April 17-19, 2026</div>
+                        </div>
+
+                        <div class="order-box-form">
+                            <a href="#order" class="btn-yellow">
+                                YES! Add The Challenge — $47
+                                <small>7-Day Money-Back Guarantee</small>
+                            </a>
+
+                            <div style="text-align: center; margin-top: 20px; font-size: 0.75rem; color: #888;">
+                                🔒 Secure Checkout • 256-Bit Encrypted
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What You Get Section -->
+    <div class="white-section">
+        <div class="wrap-narrow">
+            <h2 class="section-title">What You Walk Away With</h2>
+            
+            <div class="features-grid" style="grid-template-columns: 1fr;">
+                <div class="feature-card">
+                    <div class="f-icon">1</div>
+                    <div>
+                        <h3>The middle-class money trap escape plan</h3>
+                        <p>Why working harder makes you broker, and the mindset shift to break free</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">2</div>
+                    <div>
+                        <h3>401(k) alternatives that build wealth 3-5x faster</h3>
+                        <p>Stop feeding Wall Street hidden fees</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">3</div>
+                    <div>
+                        <h3>Tax strategies saving high earners $20K-$50K per year</h3>
+                        <p>Same strategies from your report, broken down step-by-step</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">4</div>
+                    <div>
+                        <h3>Debt elimination + $50K-$100K funding access</h3>
+                        <p>Strategic leverage vs consumer debt</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">5</div>
+                    <div>
+                        <h3>Your $5K-$15K/month income stream blueprint</h3>
+                        <p>Including a 100% tax-free Airbnb model</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">6</div>
+                    <div>
+                        <h3>Entity structure with expert Tommy Thornburgh</h3>
+                        <p>LLCs, S-Corps, and avoiding double taxation</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">7</div>
+                    <div>
+                        <h3>Your personal 12-month wealth roadmap</h3>
+                        <p>Month-by-month action plan to add $100K+ to your net worth</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="#order" class="btn-yellow">
+                    YES! Add The Challenge — $47
+                    <small>7-Day Money-Back Guarantee</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Studies Section -->
+    <div class="white-section">
+        <div class="wrap-narrow">
+            <h2 class="section-title">Real Results From Real People</h2>
+            
+            <div class="case-study-card">
+                <div class="case-header">
+                    <span class="case-name">Lauren</span>
+                    <span class="case-tag">$125K/year</span>
+                </div>
+                <div class="case-saving">Saved: $61,000 - $109,000</div>
+                <ul class="case-list">
+                    <li>Charitable Remainder Trust: $25K-$75K in annual tax savings</li>
+                    <li>S-Corp Election: $15K-$25K in self-employment tax savings</li>
+                    <li>Direct Indexing: $5K-$8K in tax-loss harvesting</li>
+                    <li>Cost Segregation: $8K-$12K in real estate deductions</li>
+                </ul>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-header">
+                    <span class="case-name">Chad</span>
+                    <span class="case-tag">$180K combined</span>
+                </div>
+                <div class="case-saving">Saved: $18,500 - $43,500</div>
+                <ul class="case-list">
+                    <li>Direct Indexing: $3K-$8K in tax-loss harvesting</li>
+                    <li>S-Corp Election: $7.5K-$12K self-employment tax savings</li>
+                    <li>Solo 401(k): $5K-$8K in retirement deductions</li>
+                    <li>Cost Segregation: $5K-$7K in real estate deductions</li>
+                </ul>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-header">
+                    <span class="case-name">Michelle & Trenton</span>
+                    <span class="case-tag">$300K combined</span>
+                </div>
+                <div class="case-saving">Saved: $86,000 - $192,000</div>
+                <ul class="case-list">
+                    <li>Defined Benefit Plan: $45K-$100K immediate tax deduction</li>
+                    <li>Family Limited Partnership: $16K-$17K transfer tax savings</li>
+                    <li>Direct Indexing: $3K-$8K in tax-loss harvesting</li>
+                    <li>S-Corp: $10K-$15K self-employment tax savings</li>
+                    <li>Cost Segregation: $12K-$14K real estate deductions</li>
+                </ul>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-header">
+                    <span class="case-name">Daniel</span>
+                    <span class="case-tag">$500K/year business owner</span>
+                </div>
+                <div class="case-saving">Saved: $127,000 - $294,000</div>
+                <ul class="case-list">
+                    <li>Captive Insurance: $40K-$90K deductions</li>
+                    <li>Defined Benefit Plan: $60K-$100K retirement contribution</li>
+                    <li>Charitable Remainder Trust: $20K-$75K annual savings</li>
+                    <li>Cost Segregation: $12K-$15K real estate benefit</li>
+                </ul>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-header">
+                    <span class="case-name">Elizabeth</span>
+                    <span class="case-tag">$750K/year executive</span>
+                </div>
+                <div class="case-saving">Saved: $154,000 - $362,000</div>
+                <ul class="case-list">
+                    <li>Defined Benefit Plan: $60K-$100K immediate deduction</li>
+                    <li>Charitable Remainder Trust: $35K-$75K annual tax savings</li>
+                    <li>PPLI (Private Placement Life Insurance): $30K-$85K tax-free growth</li>
+                    <li>Family Limited Partnership: $20K-$25K transfer tax savings</li>
+                    <li>Direct Indexing: $10K-$22K tax-loss harvesting</li>
+                </ul>
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="#order" class="btn-yellow">
+                    I Want These Results — $47
+                    <small>Early Bird Pricing Ends Soon</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Section -->
+    <div class="dark-section">
+        <div class="wrap-narrow">
+            <h2 class="section-title">The <span class="hl-yellow">3-Day Schedule</span></h2>
+            
+            <div class="schedule-day">
+                <div class="day-title">
+                    <span class="day-badge">DAY 1</span>
+                    Find & Fix the Leaks
+                </div>
+                <div class="session">
+                    <div class="session-time">10:00 AM</div>
+                    <div>
+                        <h4>The Middle-Class Money Trap</h4>
+                        <p>Why working harder makes you broker, and the mindset shift to break free</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">11:30 AM</div>
+                    <div>
+                        <h4>Tax Leak Detection Workshop</h4>
+                        <p>Identify the 7 biggest tax leaks costing you $20K-$50K per year</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">1:30 PM</div>
+                    <div>
+                        <h4>401(k) Exit Strategy</h4>
+                        <p>What the wealthy actually do with retirement accounts</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">3:00 PM</div>
+                    <div>
+                        <h4>Debt Destruction Session</h4>
+                        <p>The difference between bad debt and strategic leverage</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-day">
+                <div class="day-title">
+                    <span class="day-badge">DAY 2</span>
+                    Multiply Your Wealth
+                </div>
+                <div class="session">
+                    <div class="session-time">10:00 AM</div>
+                    <div>
+                        <h4>Tax-Free Income Streams</h4>
+                        <p>How to create $5K-$15K/month in tax-free cash flow</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">11:30 AM</div>
+                    <div>
+                        <h4>$50K-$100K Funding Access</h4>
+                        <p>Business credit and strategic leverage</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">1:30 PM</div>
+                    <div>
+                        <h4>Advanced Tax Strategies</h4>
+                        <p>Cost segregation, QSBS, defined benefit plans</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">3:00 PM</div>
+                    <div>
+                        <h4>Entity Structure Masterclass</h4>
+                        <p>With expert Tommy Thornburgh: LLCs, S-Corps, avoiding double taxation</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">4:00 PM</div>
+                    <div>
+                        <h4>VIP Q&A Session</h4>
+                        <p>Get your specific questions answered live by Preston</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-day">
+                <div class="day-title">
+                    <span class="day-badge">DAY 3</span>
+                    Protect & Scale
+                </div>
+                <div class="session">
+                    <div class="session-time">10:00 AM</div>
+                    <div>
+                        <h4>Asset Protection Essentials</h4>
+                        <p>Trusts, insurance, and legal structures</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">11:30 AM</div>
+                    <div>
+                        <h4>Investment Account Architecture</h4>
+                        <p>Which accounts to open, in what order, and how much to put in each</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">1:30 PM</div>
+                    <div>
+                        <h4>The Wealth Action Plan Workshop</h4>
+                        <p>Build your month-by-month roadmap to add $100K+</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">3:00 PM</div>
+                    <div>
+                        <h4>Implementation Checklist Creation</h4>
+                        <p>Your personalized 30-day action plan with specific deadlines</p>
+                    </div>
+                </div>
+                <div class="session">
+                    <div class="session-time">4:00 PM</div>
+                    <div>
+                        <h4>VIP Q&A + Next Steps</h4>
+                        <p>Final questions answered and your 12-month plan finalized</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="#order" class="btn-yellow">
+                    Reserve My Seat — $47
+                    <small>All 15 Sessions • 3 Full Days</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="white-section">
+        <div class="wrap-narrow">
+            <h2 class="section-title">What Participants Say</h2>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"I used to think I was doing okay financially. This challenge showed me I was leaving $30,000+ on the table every year in taxes alone. Within 30 days of implementing what I learned, I had restructured my business, opened the right retirement accounts, and put my first real estate deal under contract."</p>
+                <div class="author-box">
+                    <div class="avatar">SE</div>
+                    <div>
+                        <div class="name">Stephen & Ellie</div>
+                        <div class="role">Full-time Nurses — Kansas City</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"I've attended dozens of financial seminars over the years. Most leave you inspired but confused about what to actually do next. This was different. Preston walked us through specific forms and legal structures. I literally opened my Solo 401k during one of the working sessions."</p>
+                <div class="author-box">
+                    <div class="avatar">R</div>
+                    <div>
+                        <div class="name">Rob</div>
+                        <div class="role">Marketing Director — Louisville</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"As a dad working full-time, I don't have hours to research tax strategies. This challenge gave me the complete roadmap in 3 days. I'm projected to save $42,000 this year. My only regret is not finding this sooner."</p>
+                <div class="author-box">
+                    <div class="avatar">KB</div>
+                    <div>
+                        <div class="name">Kristopher Bamford</div>
+                        <div class="role">Husband & Dad — Louisiana</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrapper">
+                <a href="#order" class="btn-yellow">
+                    YES! Add The Challenge — $47
+                    <small>Join 4,400+ Who've Transformed Their Finances</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Section -->
+    <div class="dark-section" id="order">
+        <div class="wrap-narrow">
+            <h2 class="section-title">Ready To <span class="hl-yellow">Add The Challenge?</span></h2>
+            
+            <div class="hero-order-box" style="max-width: 500px; margin: 0 auto;">
+                <div class="order-box-top">
+                    <div class="ob-spots">⚡ ONE-TIME OFFER</div>
+                    <h3>3-DAY TAX-FREE INCOME CHALLENGE</h3>
+                    <div class="ob-price">
+                        ONLY <s>$97.00</s> <span>$47</span>
+                    </div>
+                    <div class="ob-save">(SAVE $50.00 TODAY)</div>
+                    <div class="ob-desc">April 17-19, 2026 • 15 Live Sessions</div>
+                </div>
+
+                <div style="background: #fff; padding: 25px; text-align: left; border-top: 1px solid #eaeaea;">
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> All 15 live sessions over 3 days
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> Tax strategies that save $20K-$50K annually
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> Debt elimination + funding access blueprint
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> $5K-$15K/month income stream plan
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> Entity structure deep dive with expert
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> Your personalized 12-month roadmap
+                        </li>
+                        <li style="padding: 10px 0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: var(--accent-green); font-weight: 900;">✓</span> 7-day money-back guarantee
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="order-box-form">
+                    <a href="#" class="btn-yellow">
+                        YES! Add The Challenge — $47
+                        <small>Secure Checkout • Instant Confirmation</small>
+                    </a>
+
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.9rem; font-weight: 700; color: #555;">
+                            <span style="font-size: 1.5rem;">🛡️</span> 7-Day Money-Back Guarantee
+                        </div>
+                </div>
+            </div>
+
+            <a href="#" class="skip-link" style="color: #888; margin-top: 30px;">No thanks, I'll just take my tax report</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p><strong>Income Disclaimer:</strong> Although we make every effort to accurately represent the services presented, Preston Seo makes no assurance regarding future earnings.</p>
+        <p>This site is not part of Facebook or endorsed by Facebook. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+        <p style="margin-top: 16px;"><strong>Legacy Investing Show LLC</strong> — 1993 Dewar Dr Suite 256, Rock Springs, WY 82901</p>
+        <p><a href="#">Terms and Conditions</a></p>
+    </footer>
+
+    <script>
+        // Sticky bar
+        const stickyBar = document.getElementById('stickyBar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                stickyBar.classList.add('visible');
+            } else {
+                stickyBar.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

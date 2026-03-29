@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Personalized Tax Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #0b132b;
+            --primary-bg-light: #15224a;
+            --accent-pink: #1e8449; /* Success Green in Tax Report Context */
+            --accent-blue: #1c7bfd;
+            --warning-yellow: #fef9c3;
+            --text-dark: #111;
+            --text-light: #fff;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f8;
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        img, video, iframe { max-width: 100%; display: block; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        strong, b { font-weight: 800; }
+
+        h1, h2, h3, h4, .font-poppins {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.3;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ─── Top Utility Bar ─── */
+        .utility-bar {
+            background-color: var(--accent-blue);
+            color: #fff;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .utility-bar a { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            .utility-bar { flex-direction: column; text-align: center; gap: 5px; }
+        }
+
+        /* ─── Warning Banner ─── */
+        .warning-banner {
+            background-color: var(--warning-yellow);
+            border: 2px dashed #ca8a04;
+            color: #854d0e;
+            text-align: center;
+            padding: 15px 20px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* ─── Layout ─── */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── Panel Styles ─── */
+        .panel {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .panel-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #eaeaea;
+            padding: 20px 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-header.dark {
+            background: var(--primary-bg);
+            color: #fff;
+            border-bottom: none;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .panel-body {
+            padding: 25px;
+        }
+
+        /* ─── Checkout Form Placeholder ─── */
+        .checkout-placeholder {
+            border: 2px dashed #ccc;
+            background: #fcfcfc;
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* ─── Offer Stack ─── */
+        .offer-stack-img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+            border: 1px solid #eaeaea;
+        }
+
+        .offer-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .offer-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            align-items: flex-start;
+        }
+        .offer-list li .icon {
+            color: var(--accent-pink);
+            font-weight: 900;
+        }
+
+        .total-row {
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .total-row .price {
+            color: var(--accent-pink);
+            font-size: 1.8rem;
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ─── Trust Badge ─── */
+        .trust-badge {
+            background: rgba(30, 132, 73, 0.05);
+            border: 1px solid rgba(30, 132, 73, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .trust-badge.white {
+            background: #fff;
+            border-color: #eaeaea;
+        }
+        .trust-badge h5 { font-size: 1.1rem; margin-bottom: 5px; color: #111; }
+        .trust-badge p { font-size: 0.85rem; color: #555; }
+
+        /* ─── What You Get Section ─── */
+        .what-you-get {
+            background: #fff;
+            padding: 60px 0;
+            border-top: 1px solid #eaeaea;
+        }
+        .wyg-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        .wyg-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .wyg-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .wyg-icon {
+            background: #e6f6ec;
+            color: var(--accent-pink);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .wyg-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #111;
+        }
+        .wyg-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* ─── Footer ─── */
+        .site-footer {
+            background: #020a1c;
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+        }
+        .site-footer a { color: #aaa; text-decoration: underline; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Utility Bar -->
+    <div class="utility-bar">
+        <div>LEGACY INVESTING SHOW // TAX REPORT</div>
+        <div style="font-weight: 400;">Need Help? <a href="mailto:support@legacyinvestingshow.com">support@legacyinvestingshow.com</a></div>
+    </div>
+
+    <!-- Main Content -->
+    <div style="padding: 40px 0;">
+        <div class="wrap">
+            
+            <!-- Warning Banner (Scarcity) -->
+            <div class="warning-banner">
+                LIMITED AVAILABILITY: YOUR PERSONALIZED TAX REPORT SPOTS ARE FILLING UP
+            </div>
+
+            <div class="checkout-grid">
+                
+                <!-- Left Column: Checkout Form -->
+                <div>
+                    <div class="panel">
+                        <div class="panel-header">
+                            🔐 SECURE CHECKOUT
+                        </div>
+                        <div class="panel-body" style="padding: 0;">
+                            <!-- This is where the Spiffy/Stripe checkout form embed will go -->
+                            <div style="padding: 25px;">
+                                <div class="checkout-placeholder">
+                                    <h3 style="margin-bottom: 10px; color: #555;">[ CHECKOUT FORM EMBED ]</h3>
+                                    <p>Insert your checkout script here.<br>Includes: Contact Info, Payment Details, and Order Bumps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Offer Stack -->
+                <div>
+                    <div class="panel">
+                        <div class="panel-header dark">
+                            YOUR ORDER SUMMARY
+                        </div>
+                        <div class="panel-body">
+                            <!-- Visual -->
+                            <img src="tax-report-scroll.webp" alt="Tax Strategy Report Mockup" class="offer-stack-img">
+
+                            <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 15px;">Personalized Tax Strategy Report</h3>
+                            
+                            <ul class="offer-list">
+                                <li>
+                                    <span class="icon">✓</span>
+                                    <span><strong>30-Page Personalized Brief</strong> showing your top strategies and order of operations.</span>
+                                </li>
+                                <li>
+                                    <span class="icon">✓</span>
+                                    <span><strong>Tax Optimization Snapshot</strong> calculating your annual leakage.</span>
+                                </li>
+                                <li>
+                                    <span class="icon">✓</span>
+                                    <span><strong>20-Minute Video Walkthrough</strong> explaining how to execute the plan.</span>
+                                </li>
+                            </ul>
+
+                            <div class="total-row">
+                                <span>Total Today:</span>
+                                <span class="price">$27</span>
+                            </div>
+                            <div style="text-align: right; color: #888; font-size: 0.85rem; font-weight: 600; text-decoration: line-through;">$99.00 Value</div>
+                        </div>
+                    </div>
+
+                    <div class="trust-badge">
+                        <div style="font-size: 2.5rem;">🛡️</div>
+                        <div>
+                            <h5>30-Day Money Back Guarantee</h5>
+                            <p>If the report doesn't give you clarity on your next tax moves, let us know and we'll refund you. No questions asked.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trust-badge white">
+                        <div style="font-size: 2rem;">🔒</div>
+                        <div>
+                            <h5>Secure 256-Bit SSL Encryption</h5>
+                            <p>Your payment information is strictly encrypted and secure. We do not store your credit card details.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- What You Get Section -->
+    <div class="what-you-get">
+        <div class="wrap">
+            <h2 class="wyg-title">Here's Everything You Get With The <br><span style="color: var(--accent-blue);">Tax Strategy Report</span></h2>
+            
+            <div class="wyg-list">
+                
+                <div class="wyg-item">
+                    <div class="wyg-icon">✓</div>
+                    <div>
+                        <h4>The 30-Page Personalized Report</h4>
+                        <p>The complete breakdown analyzing your current state and outlining the exact savings strategies that fit your profile. No more guessing what applies to you—we highlight the exact code sections and moves relevant to your structure.</p>
+                    </div>
+                </div>
+
+                <div class="wyg-item">
+                    <div class="wyg-icon">✓</div>
+                    <div>
+                        <h4>Your Optimization Snapshot & Gap Analysis</h4>
+                        <p>A crystal-clear dashboard showing where you currently fall in the tax efficiency spectrum. We show you the "leakage metric"—exactly how many thousands you are overpaying—before mapping out the quick wins to correct it.</p>
+                    </div>
+                </div>
+
+                <div class="wyg-item">
+                    <div class="wyg-icon">✓</div>
+                    <div>
+                        <h4>Fast Start Bonus: 20-Min Video Walkthrough</h4>
+                        <p>We don't just hand you a 30-page document. You gain access to a quick masterclass breaking down how to read the report, which strategies to execute first, and exactly what questions to ask your CPA.</p>
+                    </div>
+                </div>
+
+                <div class="wyg-item">
+                    <div class="wyg-icon">✓</div>
+                    <div>
+                        <h4>The CPA Conversation Cheat Sheet</h4>
+                        <p>You shouldn't show up to your accountant with vague curiosity. The report packages the strategies into actionable questions. It shifts the dynamic from "What should I do?" to "Should we implement Strategy A or Strategy B?"</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section mimicking CFF -->
+    <div style="background: #f4f6f8; padding: 60px 0;">
+        <div class="wrap" style="max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 2rem; font-family: 'Poppins', sans-serif; font-weight: 900; text-transform: uppercase;">Real Results From <span style="background: var(--accent-blue); color: #fff; padding: 0 10px; border-radius: 4px;">High Earners</span></h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                
+                <div style="background: #fff; padding: 25px; border-radius: 8px; border: 1px solid #eaeaea; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+                    <div style="color: #ffd505; font-size: 1.2rem; margin-bottom: 10px;">★★★★★</div>
+                    <p style="font-size: 1rem; color: #444; margin-bottom: 20px; font-style: italic;">"I thought I already handled my major tax moves. This report <strong style="background: var(--warning-yellow); padding: 0 4px;">found an immediate $12K leak</strong> in how my LLC was structured. Worth every penny."</p>
+                    <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid #eee; padding-top: 15px;">
+                        <div style="width: 40px; height: 40px; background: var(--primary-bg); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">DK</div>
+                        <div style="font-size: 0.9rem;">
+                            <strong style="color: #111;">David K.</strong><br>
+                            <span style="color: #888;">Consultant · $180K/yr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #fff; padding: 25px; border-radius: 8px; border: 1px solid #eaeaea; box-shadow: 0 4px 10px rgba(0,0,0,0.03);">
+                    <div style="color: #ffd505; font-size: 1.2rem; margin-bottom: 10px;">★★★★★</div>
+                    <p style="font-size: 1rem; color: #444; margin-bottom: 20px; font-style: italic;">"It organized the chaos. I went into my CPA meeting with the specific report pages and <strong style="background: var(--warning-yellow); padding: 0 4px;">we implemented three new strategies the same day</strong>."</p>
+                    <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid #eee; padding-top: 15px;">
+                        <div style="width: 40px; height: 40px; background: var(--primary-bg); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">SM</div>
+                        <div style="font-size: 0.9rem;">
+                            <strong style="color: #111;">Sarah M.</strong><br>
+                            <span style="color: #888;">Agency Owner · $320K/yr</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div style="max-width: 800px; margin: 0 auto 20px; line-height: 1.5; font-size: 0.8rem;">
+                This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. Facebook™ is a trademark of Facebook™, Inc.
+            </div>
+            <div>
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms &amp; Conditions</a> |
+                <a href="#">Disclaimer</a>
+            </div>
+            <div style="margin-top: 15px;">&copy; 2026 Legacy Investing Show — All Rights Reserved</div>
+        </div>
+    </footer>
+
+</body>
+</html>
