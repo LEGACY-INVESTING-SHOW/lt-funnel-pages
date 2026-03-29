@@ -12,6 +12,10 @@
     {
       "source": "/challenge",
       "destination": "/upsell-challenge.html"
+    },
+    {
+      "source": "/challengevip",
+      "destination": "/upsell-vip.html"
     }
   ]
 }
