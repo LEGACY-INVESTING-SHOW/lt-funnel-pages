@@ -254,7 +254,6 @@
                 padding: 30px 15px;
                 font-size: 0.75rem;
             }
-        }
             .btn-yellow-sm {
                 font-size: 0.8rem;
                 padding: 8px 16px;
@@ -277,7 +276,7 @@
         }
 
         .hero-section h1 {
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(1.53rem, 3.4vw, 2.55rem);
             font-weight: 900;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -535,7 +534,8 @@
 
         /* ─── NEW 3-3 Layout with Center Image (Matching Reference Design) ─── */
         .report-deliverables-section {
-            background: linear-gradient(135deg, #0b132b 0%, #15224a 100%);
+            background-color: var(--primary-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
             color: #fff;
             padding: 80px 0;
             position: relative;
@@ -543,15 +543,7 @@
         }
 
         .report-deliverables-section::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 70%, rgba(28, 123, 253, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(30, 132, 73, 0.1) 0%, transparent 40%);
-            pointer-events: none;
+            display: none;
         }
 
         .report-deliverables-section .wrap {
@@ -646,7 +638,6 @@
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.35);
             width: 100%;
-            height: 100%;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -657,8 +648,8 @@
 
         .report-preview-main img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             display: block;
         }
 
@@ -743,31 +734,6 @@
             color: #a8b5d1;
         }
 
-        /* Section Styles */
-        .report-deliverables-section {
-            background: linear-gradient(135deg, #0b132b 0%, #15224a 100%);
-            color: #fff;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .report-deliverables-section::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 70%, rgba(28, 123, 253, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(30, 132, 73, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .report-deliverables-section .wrap {
-            position: relative;
-            z-index: 1;
-        }
 
         /* OLD STYLES - DISABLED */
         /*
@@ -1134,7 +1100,7 @@
 
         /* ─── Bonus Cards Section (White) ─── */
         .bonus-section {
-            background: #f4f6f8;
+            background: #f8f9fa;
             padding: 60px 0;
         }
         .bonus-grid {
@@ -1236,17 +1202,79 @@
     
         /* Extra CFF fixes */
         .hero-section {
-            background-color: #0b132b !important;
-            background-image: none !important;
+            background-color: var(--primary-bg) !important;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>') !important;
             color: #fff !important;
-            padding: 40px 0 60px !important;
+            padding: 60px 0 80px !important;
+        }
+
+        .pre-headline {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 24px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #f23a3a;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 rgba(242, 58, 58, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(242, 58, 58, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(242, 58, 58, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(242, 58, 58, 0); }
         }
 
         .hero-section h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+            font-size: clamp(1.87rem, 4.25vw, 3.4rem) !important;
             line-height: 1.1 !important;
-            max-width: 1000px !important;
+            max-width: 1050px !important;
             margin: 0 auto 30px !important;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hl-gradient {
+            background: linear-gradient(to right, #ffd505, #f29a00, #ffea00);
+            background-size: 200% auto;
+            color: #000;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        
+        .hero-section .sub {
+            font-size: 1.25rem !important;
+            line-height: 1.8 !important;
+            color: #d1d5db !important;
+            font-weight: 400 !important;
+        }
+        
+        .highlight-text {
+            color: #fff;
+            font-weight: 700;
+            border-bottom: 2px solid #1e8449;
         }
 
         .hl-pink {
@@ -1286,6 +1314,8 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
             border: 2px solid #fff !important;
             overflow: hidden !important;
+            max-width: 85%;
+            margin: 0 auto;
         }
 
         .order-box-top {
@@ -1506,12 +1536,12 @@
     <div class="hero-section">
         <div class="wrap">
 
-            <div class="pre-headline">ATTENTION HIGH-EARNING PROFESSIONALS & BUSINESS OWNERS:</div>
+            <div class="pre-headline"><span class="pulse-dot"></span> ATTENTION HIGH-EARNING PROFESSIONALS & BUSINESS OWNERS:</div>
             <h1>
-                Stop Overpaying The IRS: Get Your <span class="hl-yellow">30-Page Personalized Tax Strategy Report</span> For Just $27
+                Stop Overpaying The IRS: Get Your <br><span class="hl-gradient">30-Page Personalized Tax Strategy Report</span><br> For Just $27
             </h1>
             
-            <p class="sub">Answer 15 simple questions (takes 90 seconds) and get a 30-page personalized tax report + 20-minute video walkthrough showing exactly which strategies fit your situation to save thousands in taxes this year.</p>
+            <p class="sub">Answer 15 simple questions (takes <span class="highlight-text">90 seconds</span>) and get a 30-page personalized tax report + 20-minute video walkthrough showing exactly <span class="highlight-text">which strategies fit your situation</span> to save thousands in taxes this year.</p>
 
             <div class="hero-grid">
                 <div class="hero-left">
@@ -1679,7 +1709,7 @@
                         <p>Additional strategy details, implementation worksheets, resource lists, provider recommendations, and next steps summary to take to your CPA.</p>
                     </div>
                 </div>
-                <div class="feature-card" style="background: #fff200;">
+                <div class="feature-card">
                     <div class="f-icon" style="background: #1e8449;">★</div>
                     <div>
                         <h3>20-Minute Video Walkthrough</h3>
@@ -1702,7 +1732,7 @@
             <div class="section-header" style="text-align: center; max-width: 900px; margin: 0 auto 50px;">
                 <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 15px; line-height: 1.2; color: #fff;">
                     HERE'S WHAT YOU'LL GET WITH YOUR<br>
-                    <span style="background: linear-gradient(135deg, #1c7bfd 0%, #4aa0ff 100%); color: #fff; padding: 5px 20px; border-radius: 8px; display: inline-block; margin-top: 10px;">TAX STRATEGY REPORT</span>
+                    <span style="background: #1e8449; color: #fff; padding: 5px 20px; border-radius: 8px; display: inline-block; margin-top: 10px;">TAX STRATEGY REPORT</span>
                 </h2>
             </div>
 
@@ -1749,7 +1779,7 @@
 
             <!-- CTA Area -->
             <div class="deliverables-cta-area">
-                <a href="/taxreportorder" class="btn-orange-gradient">
+                <a href="/taxreportorder" class="btn-yellow">
                     YES! I Want My Tax Report Now →
                     <small>Get Your Personalized Report In Minutes</small>
                 </a>
@@ -1766,7 +1796,7 @@
     </div>
 
     <!-- ─── Cost of Inaction ─── -->
-    <div class="white-section" style="background: #f4f6f8;">
+    <div class="white-section">
         <div class="wrap">
             <div style="text-align: center; margin-bottom: 30px;">
                 <h2 class="section-title">What Does <span class="hl-pink" style="background: #fff200 !important; color: #111 !important;">"Figuring It Out Later"</span> Actually Cost?</h2>
@@ -1832,7 +1862,7 @@
 
 
     <!-- ─── Report Preview ─── -->
-    <div class="white-section" style="background: #f4f6f8;">
+    <div class="white-section">
         <div class="wrap">
             <h2 class="section-title">See What Your Report <span class="hl-pink">Looks Like</span></h2>
             <p class="reading-text" style="text-align: center; font-weight: 700; margin-bottom: 40px;">Scroll through the actual report layout &mdash; scoring, strategy pages, savings ranges, and your action plan.</p>
@@ -1844,7 +1874,7 @@
     </div>
 
     <!-- ─── What This Report Actually Is ─── -->
-    <div class="white-section" style="background: #f4f6f8;">
+    <div class="white-section">
         <div class="wrap-narrow">
             <h2 class="section-title" style="margin-bottom: 30px;">What This Report Actually Is <span class="hl-pink">(And Isn't)</span></h2>
 
@@ -1970,7 +2000,7 @@
     </div>
 
     <!-- ─── Compare ─── -->
-    <div class="white-section" style="background: #f4f6f8;">
+    <div class="white-section">
         <div class="wrap">
             <h2 class="section-title">A Personalized Report Beats Another Weekend of <span class="hl-pink">Random Tax Research</span></h2>
             
@@ -2046,7 +2076,7 @@
     </div>
 
     <!-- ─── FAQ ─── -->
-    <div class="white-section" style="background: #f4f6f8;">
+    <div class="white-section">
         <div class="wrap-narrow">
             <div style="text-align: center; margin-bottom: 40px;">
                 <h2 class="section-title">FREQUENTLY ASKED <span class="hl-pink">QUESTIONS</span></h2>
