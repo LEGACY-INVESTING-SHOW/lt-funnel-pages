@@ -8,6 +8,10 @@
     {
       "source": "/taxreportorder",
       "destination": "/order.html"
+    },
+    {
+      "source": "/challenge",
+      "destination": "/upsell-challenge.html"
     }
   ]
 }
