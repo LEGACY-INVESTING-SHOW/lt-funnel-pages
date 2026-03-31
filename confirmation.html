@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Thank You! | Legacy Investing Show</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #0b132b;
+            --primary-bg-light: #15224a;
+            --accent-green: #1e8449;
+            --accent-blue: #1c7bfd;
+            --text-dark: #111;
+            --text-light: #fff;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            background-image: radial-gradient(circle at top center, var(--primary-bg-light) 0%, var(--primary-bg) 70%);
+            color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        strong, b { font-weight: 800; }
+
+        .wrap-narrow {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(30, 132, 73, 0.4);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .sub {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #cbd5e0;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+
+        .highlight-box p {
+            font-size: 1.05rem;
+            color: #cbd5e0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .btn-yellow {
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, #ffea00 0%, #ff9d00 100%);
+            color: #000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-align: center;
+            padding: 18px 30px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+            margin: 20px 0;
+        }
+
+        .btn-yellow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-yellow:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-yellow small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+            text-transform: none;
+            text-shadow: none;
+            opacity: 0.9;
+        }
+
+        .email-notice {
+            background: rgba(30, 132, 73, 0.15);
+            border-left: 4px solid var(--accent-green);
+            padding: 20px 25px;
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .email-notice p {
+            font-size: 1rem;
+            color: #fff;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .email-notice strong {
+            color: var(--accent-green);
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            margin: 40px 0;
+        }
+
+        .challenge-info {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .challenge-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #ffd505;
+            text-transform: uppercase;
+        }
+
+        .challenge-info p {
+            font-size: 1rem;
+            color: #cbd5e0;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .challenge-info strong {
+            color: #fff;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .check-list li {
+            padding: 8px 0;
+            color: #fff;
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .wrap-narrow {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: clamp(1.6rem, 6vw, 2.2rem);
+            }
+
+            .sub {
+                font-size: 1rem;
+            }
+
+            .btn-yellow {
+                font-size: 1.1rem;
+                padding: 16px 20px;
+            }
+
+            .highlight-box {
+                padding: 20px;
+            }
+
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-narrow">
+        <div class="success-icon">&#10003;</div>
+
+        <h1>Congratulations!<br>Your Order Is Confirmed</h1>
+
+        <p class="sub">You're about to discover exactly which tax strategies could save you $10K-$50K+ this year. Check your email for your purchase confirmation and next steps.</p>
+
+        <div class="highlight-box">
+            <h3>Your Next Step</h3>
+            <p>Complete the 90-second questionnaire so we can build your personalized 30-page tax strategy report:</p>
+            <a href="https://taxreport.legacyinvestingshow.com/" class="btn-yellow">
+                Start My Tax Report Quiz &rarr;
+                <small>Takes 90 Seconds - Personalized Results</small>
+            </a>
+        </div>
+
+        <div class="email-notice">
+            <p><strong>Check Your Email:</strong> We've sent your order confirmation and receipt to your email address. If you don't see it within 5 minutes, check your spam folder.</p>
+        </div>
+
+        <div class="challenge-info">
+            <h4>Did You Get Challenge Tickets?</h4>
+            <p>If you purchased the <strong>3-Day Tax-Free Income Challenge</strong>, please check your email for:</p>
+            <ul class="check-list">
+                <li>&#10003; <strong>Zoom Meeting Invites</strong> for all 15 sessions</li>
+                <li>&#10003; <strong>Calendar Links</strong> to add sessions to your schedule</li>
+                <li>&#10003; <strong>Pre-Challenge Prep Guide</strong> to maximize your results</li>
+                <li>&#10003; <strong>Private Community Access</strong> details</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 0.95rem; color: #888;">April 17-19, 2026 - Can't wait to see you there!</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="sub" style="font-size: 1rem; margin-bottom: 10px;">Questions? Contact our support team at <a href="mailto:support@legacyinvestingshow.com" style="color: var(--accent-green); text-decoration: underline;">support@legacyinvestingshow.com</a></p>
+
+        <p class="footer-text">&copy; 2026 Legacy Investing Show - All Rights Reserved</p>
+    </div>
+
+    <script>
+    "use strict";!function(i,t){var f=t.spiffy=t.spiffy||[];if(!f.init){
+    if(f.invoked)return void(t.console&&console.error&&console.warn("Spiffy Elements included twice."))
+    ;f.invoked=!0,f.methods=["identify","config","debug","off","on"],f.factory=function(i){
+    return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(i),f.push(t),f}},
+    f.methods.forEach(function(i){spiffy[i]=f.factory(i)}),f.load=function(t,f){if(!spiffy.ACCOUNT){
+    spiffy.ACCOUNT=t,spiffy.DOMAIN=f;var e=i.createElement("script");e.type="text/javascript",
+    e.async=!0,e.crossorigin="anonymous",e.src="https://js.static.spiffy.co/spiffy.js?a="+t
+    ;var n=i.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}}}}(document,window),
+    spiffy.SNIPPET_VERSION="1.1.0";
+    spiffy.config({
+        hideSidebar: false,
+    })
+    spiffy.load("legacyinvestingshow");
+    </script>
+</body>
+</html>

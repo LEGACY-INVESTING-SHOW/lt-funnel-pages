@@ -16,6 +16,10 @@
     {
       "source": "/challengevip",
       "destination": "/upsell-vip.html"
+    },
+    {
+      "source": "/confirmation",
+      "destination": "/confirmation.html"
     }
   ],
   "headers": [
