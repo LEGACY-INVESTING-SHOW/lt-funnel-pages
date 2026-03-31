@@ -1374,6 +1374,13 @@
 
     <script>
         // Sticky bar
+        const currentUrl = new URL(window.location.href);
+        if (currentUrl.searchParams.has('x-spiffy-si')) {
+            currentUrl.searchParams.delete('x-spiffy-si');
+            const cleanedPath = currentUrl.pathname + currentUrl.search + currentUrl.hash;
+            window.history.replaceState({}, document.title, cleanedPath);
+        }
+
         const stickyBar = document.getElementById('stickyBar');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
