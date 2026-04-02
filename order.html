@@ -497,7 +497,7 @@
     (function() {
         var checkoutUrl = new URL('https://legacyinvestingshow.spiffy.co/checkout/taxreport');
         var pageParams = new URLSearchParams(window.location.search);
-        ['first_name', 'last_name', 'email'].forEach(function(key) {
+        ['first_name', 'last_name', 'email', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'].forEach(function(key) {
             var value = pageParams.get(key);
             if (value) {
                 checkoutUrl.searchParams.set(key, value);

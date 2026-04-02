@@ -3509,6 +3509,89 @@ head.appendChild(script);
         const heroFullNameInput = document.getElementById('heroFullName');
         const heroEmailInput = document.getElementById('heroEmail');
         const heroOrderCta = document.getElementById('heroOrderCta');
+        const attributionStorageKey = 'ltFunnelAttribution';
+        const webhookSentPrefix = 'ltLeadWebhookSent:';
+        const attributionParamKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'];
+
+        function getStoredAttribution() {
+            try {
+                const raw = window.localStorage.getItem(attributionStorageKey);
+                return raw ? JSON.parse(raw) : {};
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function storeAttribution(data) {
+            try {
+                window.localStorage.setItem(attributionStorageKey, JSON.stringify(data));
+            } catch (error) {
+                // Ignore storage failures so the funnel still works.
+            }
+        }
+
+        function captureAttribution() {
+            const currentUrl = new URL(window.location.href);
+            const storedAttribution = getStoredAttribution();
+            const mergedAttribution = { ...storedAttribution };
+            let hasNewAttribution = false;
+
+            attributionParamKeys.forEach((key) => {
+                const value = currentUrl.searchParams.get(key);
+                if (value && !mergedAttribution[key]) {
+                    mergedAttribution[key] = value;
+                    hasNewAttribution = true;
+                }
+            });
+
+            if (!mergedAttribution.landing_url) {
+                mergedAttribution.landing_url = currentUrl.origin + currentUrl.pathname;
+                hasNewAttribution = true;
+            }
+
+            if (!mergedAttribution.initial_referrer && document.referrer) {
+                mergedAttribution.initial_referrer = document.referrer;
+                hasNewAttribution = true;
+            }
+
+            if (!mergedAttribution.captured_at) {
+                mergedAttribution.captured_at = new Date().toISOString();
+                hasNewAttribution = true;
+            }
+
+            if (hasNewAttribution) {
+                storeAttribution(mergedAttribution);
+            }
+
+            return mergedAttribution;
+        }
+
+        function postLeadAttribution(payload) {
+            const formData = new FormData();
+
+            Object.entries(payload).forEach(([key, value]) => {
+                if (value !== undefined && value !== null && value !== '') {
+                    formData.append(key, String(value));
+                }
+            });
+
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon('https://hooks.zapier.com/hooks/catch/9914831/unw67sd/', formData);
+                return;
+            }
+
+            fetch('https://hooks.zapier.com/hooks/catch/9914831/unw67sd/', {
+                method: 'POST',
+                body: new URLSearchParams(payload),
+                mode: 'no-cors',
+                keepalive: true,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                }
+            }).catch(() => {
+                // Ignore webhook failures so checkout is never blocked.
+            });
+        }
 
         function buildPrefilledOrderUrl() {
             const orderUrl = new URL('/taxreportorder', window.location.origin);
@@ -3517,6 +3600,7 @@ head.appendChild(script);
             const nameParts = fullName.split(/\s+/).filter(Boolean);
             const firstName = nameParts.shift() || '';
             const lastName = nameParts.join(' ');
+            const attribution = captureAttribution();
 
             if (firstName) {
                 orderUrl.searchParams.set('first_name', firstName);
@@ -3528,8 +3612,16 @@ head.appendChild(script);
                 orderUrl.searchParams.set('email', email);
             }
 
+            attributionParamKeys.forEach((key) => {
+                if (attribution[key]) {
+                    orderUrl.searchParams.set(key, attribution[key]);
+                }
+            });
+
             return orderUrl.toString();
         }
+
+        captureAttribution();
 
         if (heroOrderCta && heroFullNameInput && heroEmailInput) {
             heroOrderCta.addEventListener('click', (event) => {
@@ -3543,6 +3635,28 @@ head.appendChild(script);
                 if (!heroEmailInput.checkValidity()) {
                     heroEmailInput.reportValidity();
                     return;
+                }
+
+                const attribution = captureAttribution();
+                const fullName = heroFullNameInput.value.trim();
+                const email = heroEmailInput.value.trim().toLowerCase();
+                const nameParts = fullName.split(/\s+/).filter(Boolean);
+                const firstName = nameParts.shift() || '';
+                const lastName = nameParts.join(' ');
+                const webhookSentKey = webhookSentPrefix + email;
+
+                if (email && !window.sessionStorage.getItem(webhookSentKey)) {
+                    postLeadAttribution({
+                        event_name: 'lead_capture',
+                        funnel_step: 'taxreport',
+                        full_name: fullName,
+                        first_name: firstName,
+                        last_name: lastName,
+                        email,
+                        page_url: window.location.href,
+                        ...attribution
+                    });
+                    window.sessionStorage.setItem(webhookSentKey, '1');
                 }
 
                 window.location.href = buildPrefilledOrderUrl();
