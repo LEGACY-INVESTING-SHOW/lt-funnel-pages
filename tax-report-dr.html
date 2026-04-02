@@ -1851,17 +1851,17 @@
                         <div class="order-form-inputs">
                             <div class="input-wrapper">
                                 <label>Full Name <span class="required">*</span></label>
-                                <input type="text" placeholder="Enter your full name">
+                                <input type="text" id="heroFullName" placeholder="Enter your full name" required>
                             </div>
 
                             <div class="input-wrapper">
                                 <label>Email Address <span class="required">*</span></label>
-                                <input type="email" placeholder="Enter your email address">
+                                <input type="email" id="heroEmail" placeholder="Enter your email address" required>
                             </div>
                         </div>
 
                         <div class="order-box-form">
-                            <a href="/taxreportorder" class="btn-yellow">
+                            <a href="/taxreportorder" class="btn-yellow" id="heroOrderCta">
                                 CLAIM MY TAX REPORT FOR $27 →
                                 <small>Get Your Custom Plan For <s>$99</s> $27</small>
                             </a>
@@ -3202,6 +3202,49 @@
                 answer.style.display = 'none';
                 icon.textContent = '+';
             }
+        }
+
+        const heroFullNameInput = document.getElementById('heroFullName');
+        const heroEmailInput = document.getElementById('heroEmail');
+        const heroOrderCta = document.getElementById('heroOrderCta');
+
+        function buildPrefilledOrderUrl() {
+            const orderUrl = new URL('/taxreportorder', window.location.origin);
+            const fullName = heroFullNameInput.value.trim();
+            const email = heroEmailInput.value.trim();
+            const nameParts = fullName.split(/\s+/).filter(Boolean);
+            const firstName = nameParts.shift() || '';
+            const lastName = nameParts.join(' ');
+
+            if (firstName) {
+                orderUrl.searchParams.set('first_name', firstName);
+            }
+            if (lastName) {
+                orderUrl.searchParams.set('last_name', lastName);
+            }
+            if (email) {
+                orderUrl.searchParams.set('email', email);
+            }
+
+            return orderUrl.toString();
+        }
+
+        if (heroOrderCta && heroFullNameInput && heroEmailInput) {
+            heroOrderCta.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                if (!heroFullNameInput.checkValidity()) {
+                    heroFullNameInput.reportValidity();
+                    return;
+                }
+
+                if (!heroEmailInput.checkValidity()) {
+                    heroEmailInput.reportValidity();
+                    return;
+                }
+
+                window.location.href = buildPrefilledOrderUrl();
+            });
         }
     </script>
 </body>

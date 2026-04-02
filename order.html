@@ -292,7 +292,7 @@
                             🔐 SECURE CHECKOUT
                         </div>
                         <div class="panel-body" style="padding: 25px;">
-                            <spiffy-checkout url="https://legacyinvestingshow.spiffy.co/checkout/taxreport"></spiffy-checkout>
+                            <div id="spiffyCheckoutMount"></div>
                         </div>
                     </div>
                 </div>
@@ -492,6 +492,26 @@
             <div style="margin-top: 15px;">&copy; 2026 Legacy Investing Show — All Rights Reserved</div>
         </div>
     </footer>
+
+    <script>
+    (function() {
+        var checkoutUrl = new URL('https://legacyinvestingshow.spiffy.co/checkout/taxreport');
+        var pageParams = new URLSearchParams(window.location.search);
+        ['first_name', 'last_name', 'email'].forEach(function(key) {
+            var value = pageParams.get(key);
+            if (value) {
+                checkoutUrl.searchParams.set(key, value);
+            }
+        });
+
+        var checkoutMount = document.getElementById('spiffyCheckoutMount');
+        if (checkoutMount) {
+            var checkoutElement = document.createElement('spiffy-checkout');
+            checkoutElement.setAttribute('url', checkoutUrl.toString());
+            checkoutMount.appendChild(checkoutElement);
+        }
+    })();
+    </script>
 
     <script>
     "use strict";!function(i,t){var f=t.spiffy=t.spiffy||[];if(!f.init){
