@@ -91,23 +91,6 @@ head.appendChild(script);
         window.__loadDeferredScript = loadDeferredScript;
     }(window, document));
 
-    window.dataLayer = window.dataLayer || [];
-    window.__deferThirdParty(function () {
-        window.dataLayer.push({
-            'gtm.start': Date.now(),
-            event: 'gtm.js'
-        });
-        window.__loadDeferredScript('https://tracking.managemoney101.com/gtm.js?id=GTM-KQ4R2LKP', {
-            fetchPriority: 'low'
-        });
-    });
-
-    window.__deferThirdParty(function () {
-        window.__loadDeferredScript(
-            "https://t.managemoney101.com/v1/lst/universal-script?ph=99701b257ae8a5117ba5d7b516261da603bc86a49c0c42f398c619e251026c05&tag=!clicked&ref_url=" + encodeURIComponent(document.URL),
-            { fetchPriority: 'low' }
-        );
-    });
     </script>
 
     <style>
