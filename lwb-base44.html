@@ -24,15 +24,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     <style>
         :root {
-            --primary-bg: #0b1120;
-            --primary-bg-light: #1e293b;
-            --accent-pink: #10b981;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --btn-top: #fbbf24;
-            --btn-bottom: #f59e0b;
-            --text-dark: #0f172a;
-            --text-light: #f8fafc;
+            --primary-bg: #0b132b;
+            --primary-bg-light: #15224a;
+            --accent-pink: #1e8449;
+            --accent-blue: #1c7bfd;
+            --accent-green: #1e8449;
+            --btn-top: #ffd505;
+            --btn-bottom: #f29a00;
+            --text-dark: #111;
+            --text-light: #fff;
             --section-border: rgba(0,0,0,0.06);
             --card-shadow: 0 4px 24px -4px rgba(0,0,0,0.06);
             --card-shadow-hover: 0 12px 32px -6px rgba(0,0,0,0.10);
@@ -109,15 +109,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(2, 10, 28, 0.96);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(2, 10, 28, 0.98);
+            backdrop-filter: blur(10px);
             padding: 12px 20px;
             z-index: 1000;
             transform: translateY(-100%);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 2px solid var(--accent-orange, #f97316);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            border-bottom: 2px solid var(--accent-pink);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .sticky-cta-bar.visible {
             transform: translateY(0);
@@ -150,7 +149,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .hero-section {
             background-color: var(--primary-bg);
-            background-image: radial-gradient(ellipse 120% 80% at 50% 0%, var(--primary-bg-light) 0%, var(--primary-bg) 100%);
+            background-image: radial-gradient(circle at top center, var(--primary-bg-light) 0%, var(--primary-bg) 70%);
             color: #fff;
             padding: 48px 0 64px;
             text-align: center;
@@ -178,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .hero-section .sub {
             font-size: 1.15rem;
             font-weight: 500;
-            color: #b8c5d6;
+            color: #cbd5e0;
             max-width: 800px;
             margin: 0 auto 44px;
             line-height: 1.7;
@@ -314,21 +313,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .hero-testimonial {
             margin-top: 28px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 14px;
-            padding: 22px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .hero-testimonial img {
             width: 60px; height: 60px; border-radius: 50%; object-fit: cover;
         }
         .hero-testimonial p {
-            color: #e2e8f0; font-size: 0.9rem; font-weight: 600; font-style: italic; line-height: 1.5;
+            color: #fff; font-size: 0.9rem; font-weight: 600; font-style: italic; line-height: 1.4;
         }
         .hero-testimonial .stars { color: #ffd505; font-size: 1.1rem; margin-top: 5px; }
         .hero-testimonial .author { color: #ffd505; font-weight: 800; font-size: 0.9rem;}
@@ -405,23 +402,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-top: 1px solid #eaeaea;
         }
         .white-section {
-            background: #f8f9fa;
+            background: #fff;
             padding: 72px 0;
             color: #111;
             border-top: none;
             border-bottom: none;
             position: relative;
         }
-        .white-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-        }
+
         .section-title {
             text-align: center;
             font-size: clamp(2rem, 4vw, 2.5rem);
@@ -434,7 +422,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 1.15rem;
             line-height: 1.75;
             margin-bottom: 24px;
-            color: #374151;
+            color: #333;
             font-weight: 500;
         }
         .features-grid {
@@ -622,37 +610,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .dark-section {
             background-color: var(--primary-bg);
-            background-image: radial-gradient(ellipse 120% 80% at 50% 0%, var(--primary-bg-light) 0%, var(--primary-bg) 100%);
+            background-image: radial-gradient(circle at top center, var(--primary-bg-light) 0%, var(--primary-bg) 70%);
             padding: 72px 0;
             color: #fff;
             position: relative;
-        }
-        .dark-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(249,115,22,0.5), transparent);
         }
         .dark-section .section-title {
             color: #fff;
         }
         .dark-section .reading-text {
-            color: #b8c5d6;
+            color: #cbd5e0;
         }
         .site-footer {
-            background: var(--primary-bg);
-            color: #7a8899;
+            background: #020a1c;
+            color: #888;
             text-align: center;
             padding: 48px 24px;
             font-size: 0.82rem;
             border-top: 1px solid rgba(255,255,255,0.06);
         }
         .site-footer a {
-            color: #99aabb;
+            color: #aaa;
             text-decoration: underline;
             text-underline-offset: 2px;
             transition: color 0.2s;
@@ -684,14 +662,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             letter-spacing: 0.6px;
         }
         .quote-block {
-            background: rgba(255,255,255,0.04);
-            border-left: 3px solid var(--accent-orange, #f97316);
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid var(--accent-pink);
             padding: 22px 28px;
             margin: 28px 0;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 8px 8px 0;
         }
         .quote-block p {
-            color: #b8c5d6;
+            color: #cbd5e0;
             font-size: 1.1rem;
             font-weight: 500;
             line-height: 1.65;
@@ -706,14 +684,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-style: normal;
         }
         .disclosure-bar {
-            background: rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.10);
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 20px 24px;
             margin: 32px 0;
         }
         .disclosure-bar p {
-            color: #8899aa;
+            color: #a8b5d1;
             font-size: 0.85rem;
             line-height: 1.65;
             margin: 0;
@@ -999,22 +977,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="hero-grid">
                 <div>
                     <div class="video-container">
-                        <div class="sound-bar">SOUND ON — PRESTON EXPLAINS THE $5,000-FOR-FREE PARTNERSHIP · 7 MIN</div>
+                        
                         <div class="video-frame">
                             <iframe src="https://player.vimeo.com/video/1182078528?autoplay=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <a href="https://base44.pxf.io/c/3794883/2477538/25619?subId1=preston%201&trafcat=hp" target="_blank" rel="noopener noreferrer" class="btn-orange">
-                        ACTIVATE BASE44 & UNLOCK YOUR FREE PROGRAM
-                        <small>$20/mo for Base44 — Program is Free</small>
-                    </a>
-                    <a href="confirmation.html" class="skip-link">Continue to confirmation page</a>
-                    <div class="hero-testimonial">
-                        <div style="background: var(--accent-blue); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; flex-shrink: 0;">PS</div>
-                        <div>
-                            <p>"The tax report is the scan. This is the operating room. If you don't take the next step within 48 hours, that PDF ends up in your downloads folder next to a Chipotle receipt — and nothing actually changes."</p>
-                            <div class="author">PRESTON SEO <span class="stars">★★★★★</span></div>
-                        </div>
+                    <div style="margin-top: 24px; color: #fff; text-align: left;">
+                        <p style="font-size: 1.1rem; color: #fff; font-weight: 700; margin-bottom: 16px;">Here's how it works:</p>
+                        <ol style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+                            <li style="font-size: 1.05rem; color: #cbd5e0; line-height: 1.7; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #f97316; font-weight: 900;">1.</span> Sign up for Base44 (starts at $20/month)
+                            </li>
+                            <li style="font-size: 1.05rem; color: #cbd5e0; line-height: 1.7; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #f97316; font-weight: 900;">2.</span> Send us your receipt
+                            </li>
+                            <li style="font-size: 1.05rem; color: #cbd5e0; line-height: 1.7; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #f97316; font-weight: 900;">3.</span> We send you everything
+                            </li>
+                        </ol>
+                        <p style="font-size: 1.05rem; color: #cbd5e0; line-height: 1.7; margin-bottom: 14px;">Once we verify your activation, you get:</p>
+                        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+                            <li style="font-size: 0.98rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 6px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #1e8449; font-weight: 900;">✓</span> Legacy Wealth Blueprint — all 13 hours
+                            </li>
+                            <li style="font-size: 0.98rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 6px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #1e8449; font-weight: 900;">✓</span> 1-on-1 Wealth Concierge Call
+                            </li>
+                            <li style="font-size: 0.98rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 6px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #1e8449; font-weight: 900;">✓</span> Legacy Wealth AI advisor
+                            </li>
+                            <li style="font-size: 0.98rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 6px; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #1e8449; font-weight: 900;">✓</span> Base44 Setup Kit + copy-paste templates
+                            </li>
+                            <li style="font-size: 0.98rem; color: #cbd5e0; line-height: 1.6; display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #1e8449; font-weight: 900;">✓</span> 12 months of full access
+                            </li>
+                        </ul>
+                        <p style="font-size: 0.95rem; color: #a8b5d1; line-height: 1.6;">Your $20 goes to Base44. The program costs you nothing. Cancel anytime.</p>
                     </div>
                 </div>
                 <div>
@@ -1049,9 +1048,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 ACTIVATE BASE44 & UNLOCK — FREE
                                 <small>Full $5,000 Program Free — Just $20/mo for Base44</small>
                             </a>
-                            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.9rem; font-weight: 700; color: #555;">
-                                <span style="font-size: 1.5rem;">🔒</span> Secure Activation — Backed by Wix (NASDAQ: WIX)
-                            </div>
+                            
                             <a href="confirmation.html" class="skip-link" style="margin-top: 18px; color: #666;">
                                 Continue to confirmation page
                             </a>
@@ -1248,7 +1245,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
     </div>
-    <div class="white-section" style="background: #f8f9fa;">
+    <div class="white-section">
         <div class="wrap-narrow">
             <h2 class="section-title">Activate In <span class="hl-pink">3 Simple Steps</span></h2>
             <p class="reading-text" style="text-align: center;">Five minutes start to finish. No guessing what's coming next, and nothing buried in the fine print.</p>
@@ -1284,7 +1281,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
     </div>
-    <div class="white-section" style="background: #fff;">
+    <div class="white-section">
         <div class="wrap-narrow">
             <h2 class="section-title">Real People. <span class="hl-pink">Real Numbers.</span></h2>
             <p class="reading-text">What I'm about to share are real client results — people who ran the same 6 phases you're about to unlock, in the past 12 months.</p>
