@@ -20,6 +20,10 @@
     {
       "source": "/confirmation",
       "destination": "/confirmation.html"
+    },
+    {
+      "source": "/lwb-base44",
+      "destination": "/lwb-base44.html"
     }
   ],
   "headers": [
