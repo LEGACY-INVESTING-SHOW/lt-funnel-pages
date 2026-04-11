@@ -475,6 +475,15 @@
     </style>
 </head>
 <body>
+    <script>
+    (function() {
+        var currentUrl = new URL(window.location.href);
+        if (!currentUrl.searchParams.has('final')) {
+            currentUrl.pathname = '/lwb-base44';
+            window.location.replace(currentUrl.toString());
+        }
+    })();
+    </script>
     <div class="wrap-narrow">
         <!-- Success Header -->
         <div class="success-icon">&#10003;</div>

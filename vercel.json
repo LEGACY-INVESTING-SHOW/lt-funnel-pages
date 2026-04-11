@@ -11,11 +11,11 @@
     },
     {
       "source": "/challenge",
-      "destination": "/upsell-challenge.html"
+      "destination": "/lwb-base44.html"
     },
     {
       "source": "/challengevip",
-      "destination": "/upsell-vip.html"
+      "destination": "/confirmation.html"
     },
     {
       "source": "/confirmation",
